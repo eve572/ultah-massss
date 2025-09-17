@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday mass! - Tema Militer Laut</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a2a5f 0%, #1a4b8c 50%, #0a2a5f 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .navy-badge {
+            width: 150px;
+            height: 150px;
+            background: #c36a16;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #f8c471;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navy-badge::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-conic-gradient(
+                transparent 0deg 10deg,
+                rgba(255, 255, 255, 0.1) 10deg 20deg
+            );
+            animation: rotate 20s linear infinite;
+        }
+
+        .navy-badge span {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            color: #ffcb69;
+            background: linear-gradient(45deg, #ffcb69, #ff9a3d, #ffcb69);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #a3d5ff;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-tab {
+            background: rgba(30, 98, 176, 0.5);
+            border: 2px solid #2d7cce;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            background: #2d7cce;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: rgba(13, 43, 85, 0.8);
+            border: 3px solid #1e62b0;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #1e62b0, #ffcb69, #1e62b0);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            background: rgba(30, 98, 176, 0.3);
+            border-left: 5px solid #ffcb69;
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+            font-size: 1.3rem;
+            position: relative;
+        }
+
+       .quote::after {
+    content: '"'; /* atau content: ""; */
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 4rem;
+    color: rgba(255, 203, 105, 0.2);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #2d7cce;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: #ffcb69;
+            border: 4px solid #1e62b0;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -13px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: rgba(30, 98, 176, 0.4);
+            border-radius: 10px;
+            border: 2px solid #2d7cce;
+        }
+
+        .timeline-content h3 {
+            color: #ffcb69;
+            margin-bottom: 10px;
+        }
+
+        /* Photo Grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .photo-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid #2d7cce;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+            border-color: #ffcb69;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 43, 85, 0.9);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        /* Interactive Button */
+        .interactive-area {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .navy-button {
+            background: linear-gradient(to bottom, #c36a16, #8c4c10);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navy-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .navy-button:active {
+            transform: translateY(2px);
+        }
+
+        .navy-button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+        }
+
+        .navy-button:hover::after {
+            transform: rotate(30deg) translate(10%, 10%);
+        }
+
+        /* Memory Game */
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .memory-card {
+            height: 120px;
+            background: #1e62b0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card .front-face,
+        .memory-card .back-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .memory-card .front-face {
+            background: #2d7cce;
+            font-size: 2rem;
+        }
+
+        .memory-card .back-face {
+            background: #ffcb69;
+            transform: rotateY(180deg);
+            color: #0a2a5f;
+            font-size: 2rem;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .countdown-item {
+            background: rgba(30, 98, 176, 0.5);
+            border: 2px solid #2d7cce;
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffcb69;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: #a3d5ff;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(0);
+            }
+            25% {
+                transform: rotate(5deg);
+            }
+            75% {
+                transform: rotate(-5deg);
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .waving {
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        /* Decorative Elements */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        .anchor {
+            top: 10%;
+            left: 5%;
+            font-size: 3.5rem;
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .ship {
+            bottom: 15%;
+            right: 5%;
+            font-size: 4.5rem;
+            animation: wave 8s ease-in-out infinite;
+        }
+
+        .star {
+            top: 20%;
+            right: 10%;
+            font-size: 2.5rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .fish {
+            bottom: 25%;
+            left: 8%;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #a3d5ff;
+            font-size: 1rem;
+            border-top: 1px solid #2d7cce;
+            margin-top: 50px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #ffcb69;
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .memory-game {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            h1 {
+                font-size: 4rem;
+            }
+            
+            .subtitle {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .decoration {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .navy-badge {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .navy-badge span {
+                font-size: 2.5rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .memory-game {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Decorative Elements -->
+        <div class="decoration anchor">⚓</div>
+        <div class="decoration ship">🚢</div>
+        <div class="decoration star">⭐</div>
+        <div class="decoration fish">🐠</div>
+        
+        <header>
+            <div class="navy-badge">
+                <span></span>
+            </div>
+            <h1>Happy Birthday Mass!</h1>
+            
+            <div class="nav-tabs">
+                <div class="nav-tab active" data-target="ucapan">Ucapan</div>
+                <div class="nav-tab" data-target="kenangan">Kenangan</div>
+                <div class="nav-tab" data-target="permainan">Permainan</div>
+                <div class="nav-tab" data-target="countdown">Countdown</div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="main-content">
+                <!-- Ucapan Section -->
+                <div class="content-section active" id="ucapan">
+                    <div class="message">
+                        <p>Hari ini adalah hari dimana lelaki hebat dilahirkan: <strong>yaituuu masss!</strong></p>
+                        <p>Terima kasih kepada mamah serta ayah mass yang sudah melahirkan lelaki hebat seperti mass.</p>
+                        
+                        <div class="quote">
+                            "Ultah bukan soal usia, tapi soal perjalanan.
+Dan aku senang bisa bareng mass sejauh ini. Happy birthday ke 20 mamasss💖!!"
+                        </div>
+                        
+                        <p>Dari perempuan mass:</p>
+                        <p class="floating" style="font-size: 1.8rem; color: #ffcb69; font-weight: bold;">HAPPY BIRTHDAY MASS SAYAAANG!</p>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>untuk mass</h3>
+                                <p>Semoga Allah SWT selalu memberikan mass panjang umur, sehat selalu, diberikan keselamatan dimanapun mass berada, diberikan umur yang barokah, diberikan kelancaran rezeki, semoga di umur mass yang sekarang mass bisaa jadi pribadi yang lebii baikk lagi dari hari-hari kemarin, dimudahkan dalam segala urusan mass baik bertugas ataupun apapun itu mengenai hal-hal baik yang mass lakuin. semoga mass dapat teruss membanggakan kedua orang tua mass. Selalu rendah hati yaa mass, semogaa mass selaluu dikelilingi orang-orang baik. Dan sukses selalu mamass, alhamdulillah apaa yang mass cita-cita kan sudaa terwujud sekarang tinggal mass menjalankan tugass mass dan semangattt teluss yaa mass mengabdi kepada negaraa. I'm proud of you mamass!</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>Dari perempuan mass</h3>
+                                <p>Mass maaff yaa kalo selama samaa mass aku belum jadi perempuan yang baik buatt mass, selaluu bikinn mass marah, bete, kecewa, tapi aku teruss berusaha buat jadii lebii baik buatt mass. maacii yaa mass sudaa mauu bareng akuu teruss, walaupun kita sering berantem mass gaa nyerah samaa kitaa, maaffinn akuu yang dulu suka bikinn mass cape dan maacii atass kesabaran mass selemaa inii samaa akuu, akuu beruntung sekalii ketemu mass, darii mass akuu banyaa belajar jadi perempuan. mass tauga bagii aku ketemu samaa mass itu hal paling beruntung buatt akuu. aku gabisaa jelasin lagii seberuntung apa akuu samaa mass intinyaa akuu banyaa terima kasii samaa mass. maaff yaa mass kalo aku ga secantik yang mass liat selama inii, temanii aku sampai jadii cantik yaa mass. Dan aku selaluu tunggu mass disiniii, aku ga akan pernah bosan bilang akuu selaluu sayaaangg samaa mass kemarinn, harii inii, esok dan selamanyaa. bareng aku selamanya yaa mass.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <h3>Untuk kita</h3>
+                                <p>Semoga Allah SWT memudahkan tujuan kita kedapanya yaa mass, diberikan kelancaran, dan lebii baik lagii dari hari-hari kemarin yaa mass, semakin sayaang satu samaa lainn, gapernah bosan, apapun dan gimana pun jalan kita kedepannya janjii lewatin bareng-bareng yaa mass. selamanyaa samaa akuu yaa mass, ayo tepatin janji-janji kita, bimbing aku kalo aku salah yaa mass. aku selalu berdoa untuk kitaa, semoga aku tetap jadi tujuan mass dari awal sampai nafas terakhir kita. iloveuuu moree, moree, moree,  moree, moree and moree mass!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="interactive-area">
+                        <button class="navy-button" onclick="celebrate()">🎖️ Klik Untuk Salut! 🎖️</button>
+                    </div>
+                </div>
+                
+                <!-- Kenangan Section -->
+                <div class="content-section" id="kenangan">
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #ffcb69;">Galeri Kenangan</h2>
+                    <div class="photo-grid">
+                        <div class="photo-item">
+                            <img src="mass botak.jpg" alt="Foto kapten ulang tahun dengan seragam militer laut dan topi putih">
+                            <div class="photo-caption">pap pertamaa darii mass</div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="mass botax.jpg" alt="Perayaan ulang tahun di atas kapal dengan dekorasi biru dan emas">
+                            <div class="photo-caption">inii pass mass di mess pelatihann</div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="mass botakk.jpg" alt="Kue ulang tahun berbentuk jangkar kapal dengan warna biru dan putih">
+                            <div class="photo-caption">inii waktuu pengumuman mass loloss</div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="we.jpg" alt="Kru kapal sedang bersorak merayakan ulang tahun bersama">
+                            <div class="photo-caption">dann inii kitaaa</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Permainan Section -->
+                <div class="content-section" id="permainan">
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #ffcb69;">Permainan Memori</h2>
+                    <p style="text-align: center; margin-bottom: 20px;">Temukan pasangan yang cocok! Klik pada kartu untuk membukanya.</p>
+                    <div class="memory-game" id="memory-game">
+                        <!-- Cards will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Countdown Section -->
+                <div class="content-section" id="countdown">
+                    <h2 style="text-align: center; margin-bottom: 30px; color: #ffcb69;">Countdown Ulang Tahun</h2>
+                    <p style="text-align: center; margin-bottom: 20px;">Hitungan mundur menuju jam tepat ulang tahun!</p>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">Hari</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">Jam</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">Menit</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">Detik</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 | dari cewe mas yang sholehah:p!</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Navigation Tabs
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.target).classList.add('active');
+            });
+        });
+
+        // Celebration Function
+        function celebrate() {
+            const button = document.querySelector('.navy-button');
+            const originalText = button.textContent;
+            
+            // Ubah teks button
+            button.textContent = '⚓ MISSION ACCOMPLISHED! ⚓';
+            button.disabled = true;
+            
+            // Efek visual
+            button.style.background = 'linear-gradient(to bottom, #4c8c10, #36600b)';
+            
+            // Tambahkan efek konfeti visual
+            document.body.style.background = 'linear-gradient(135deg, #0a5f2a 0%, #1a8c4b 50%, #0a5f2a 100%)';
+            
+            // Buat efek konfeti sederhana
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = '⭐';
+                    confetti.style.position = 'fixed';
+                    confetti.style.fontSize = Math.random() * 25 + 15 + 'px';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-50px';
+                    confetti.style.opacity = '0.9';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.animation = 'float 5s ease-in forwards';
+                    document.body.appendChild(confetti);
+                    
+                    // Hapus confetti setelah animasi selesai
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+            
+            // Kembalikan setelah beberapa detik
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                button.style.background = 'linear-gradient(to bottom, #c36a16, #8c4c10)';
+                document.body.style.background = 'linear-gradient(135deg, #0a2a5f 0%, #1a4b8c 50%, #0a2a5f 100%)';
+            }, 5000);
+        }
+
+        // Memory Game
+        const memoryGame = document.getElementById('memory-game');
+        const icons = ['⚓', '🚢', '⭐', '🐠', '🌊', '🎂', '🎁', '🎉'];
+        let cards = [...icons, ...icons];
+        let firstCard = null;
+        let secondCard = null;
+        let lockBoard = false;
+        
+        // Shuffle cards
+        cards.sort(() => 0.5 - Math.random());
+        
+        // Generate cards
+        cards.forEach(icon => {
+            const card = document.createElement('div');
+            card.className = 'memory-card';
+            card.innerHTML = `
+                <div class="front-face">?</div>
+                <div class="back-face">${icon}</div>
+            `;
+            card.addEventListener('click', flipCard);
+            memoryGame.appendChild(card);
+        });
+        
+        function flipCard() {
+            if (lockBoard) return;
+            if (this === firstCard) return;
+            
+            this.classList.add('flipped');
+            
+            if (!firstCard) {
+                firstCard = this;
+                return;
+            }
+            
+            secondCard = this;
+            checkForMatch();
+        }
+        
+        function checkForMatch() {
+            const isMatch = firstCard.querySelector('.back-face').innerHTML === 
+                           secondCard.querySelector('.back-face').innerHTML;
+            
+            isMatch ? disableCards() : unflipCards();
+        }
+        
+        function disableCards() {
+            firstCard.removeEventListener('click', flipCard);
+            secondCard.removeEventListener('click', flipCard);
+            resetBoard();
+        }
+        
+        function unflipCards() {
+            lockBoard = true;
+            
+            setTimeout(() => {
+                firstCard.classList.remove('flipped');
+                secondCard.classList.remove('flipped');
+                resetBoard();
+            }, 1500);
+        }
+        
+        function resetBoard() {
+            [firstCard, secondCard, lockBoard] = [null, null, false];
+        }
+
+        // Countdown Timer (set to next birthday)
+        function updateCountdown() {
+            const now = new Date();
+            // Set next birthday date (change this to the actual birthday)
+            const nextBirthday = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+            
+            const diff = nextBirthday - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
